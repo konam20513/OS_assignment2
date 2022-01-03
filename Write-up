@@ -1,0 +1,8 @@
+Explaination:
+1. There are 3 files main.c,E1.c,E2.c
+2. In main.c we will fork child process S1 and it registers sigterm using signal()
+3. Waitpid is used to stop the parent process untill child process ends after which parent process will be resumed
+4. Now parent process resumes and forks chiled processess SR and ST
+5. SR regsiters a sigalrm() using signal() with alarm time=2 seconds and ST also registers sigalrm() using signal()
+6. Both SR and ST calls on E1 and E2 executable files using execvp() respectively.
+7. E1 prints random number whereas E2 prints time used by CPU.
